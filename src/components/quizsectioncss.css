@@ -1,0 +1,24 @@
+.conatiner1
+{
+    display: flex;
+    justify-content:space-between;
+    align-items: space-around;
+    background-color:violet;
+}
+.options
+{
+    width:250px;
+    background-color: rgb(5, 5, 44);
+    border-radius:10px;
+    font-size: large;
+}
+
+@media  screen and (max-width:500px){
+    .options{
+        width:200px;
+    }
+    .question
+    {
+        font-size: large;
+    }
+}

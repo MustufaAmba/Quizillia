@@ -1,0 +1,55 @@
+
+.parentdiv
+{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden !important;
+    width: 100%;
+    height: 100%;
+}
+.startdiv
+{   position: absolute;
+    top: 20%;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    height:65vh;
+    width:60vw;
+    background-color: aliceblue;
+    border-radius: 30px;
+    overflow: hidden !important;
+}
+.childdiv
+{
+    position: absolute;
+    top: 25%;
+    display: flex;
+    flex-direction: column;
+}
+.inputstyle
+{
+    width:250px;
+    outline: none;
+    border-radius: 5px;
+}
+.selectinput
+{
+    width:250px;
+}
+@media  screen and (max-width:500px){
+    .parentdiv
+    {
+        width: 100%;
+        height: 100%;
+        overflow: auto;
+    }
+    .startdiv{
+        width:90vw !important;
+        height:500px !important;
+        position: absolute;
+        top:10%;
+    }
+    
+}
