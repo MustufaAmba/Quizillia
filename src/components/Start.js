@@ -8,6 +8,7 @@ const Start = () => {
 
     const [category, setcategory] = useState();
     useEffect(() => {
+        //here we are storing username and category of quiz to session storage for furthur use
         sessionStorage.setItem("name", name);
         sessionStorage.setItem("category", category);
     }, [name,category]);

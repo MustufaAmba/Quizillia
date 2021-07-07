@@ -6,21 +6,33 @@ import './quizsectioncss.css';
    const [selectedoption,setselectedoption]=useState();
     useEffect(()=>
     {
+        //here we are checking if the prevoius button is clicked then disable the buttons user can no longer select the options
+        // or if the next button is clicked then set the selectedoption to null this helps us in validating answer
         if(props.number)
         setselectedoption('');
         if(props.check==='clicked')
-        setselectedoption('set');
+        {
+            setselectedoption('set');           
+        }
     },[props.number,props.check])
-    const validate=(temp)=>
+    const correctans=(temp)=>
     {
+        //here we are changing option color based on answer validation
+            if(temp===props.correct_ans)
+            {
+            return "bg-success";
+            }
+    }
+    const validate=(temp)=>
+    { 
+         //here we are incrementing score answer validation
         setselectedoption(temp);
-
         if(temp===props.correct_ans)
         setscore(score+1);
     };
         const handleselect=(temp)=>
         {
-           
+            //here we are changing option color based on answer validation
             if(selectedoption===temp&&selectedoption===props.correct_ans)
             {
                 return "bg-success";
@@ -29,10 +41,7 @@ import './quizsectioncss.css';
             {
                 return "bg-danger";
             }
-            else if(temp===props.correct_ans)
-            {
-                return "bg-success";
-            }
+            
         }
 
     return (
@@ -47,10 +56,9 @@ import './quizsectioncss.css';
                     (
                   <div>
                         <center><Button onClick={()=>validate(temp) } 
-                        className={` options m-3 ${selectedoption && handleselect(temp)} `}
+                        className={` options m-3 ${selectedoption && handleselect(temp)} ${props.check==='clicked'&&correctans(temp)}`}
                         disabled={selectedoption} 
                         key={temp}
-
                         value={temp}
                         dangerouslySetInnerHTML={{ __html: temp}}/></center>
 </div>
